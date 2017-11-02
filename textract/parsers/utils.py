@@ -62,6 +62,8 @@ class BaseParser(object):
 
         # use chardet to automatically detect the encoding text
         result = chardet.detect(text)
+        if not result:
+            result = {'encoding': 'utf-8'}
         return text.decode(encoding=result['encoding'], errors='ignore')
 
 
